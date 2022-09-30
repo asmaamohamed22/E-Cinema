@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Cinema", "E-Cinema\E-Cinema.csproj", "{000C31BF-4A4C-4FE8-860D-4531832599EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{000C31BF-4A4C-4FE8-860D-4531832599EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{000C31BF-4A4C-4FE8-860D-4531832599EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{000C31BF-4A4C-4FE8-860D-4531832599EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{000C31BF-4A4C-4FE8-860D-4531832599EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E47E4EFC-0EEF-473D-911F-F500037F82CB}
+	EndGlobalSection
+EndGlobal
