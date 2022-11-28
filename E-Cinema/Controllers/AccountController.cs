@@ -243,6 +243,7 @@ namespace E_Cinema.Controllers
                 {
                     UserName = "Admin",
                     Email = "admin@gmail.com",
+                    PhoneNumber = "01123456789",
                     EmailConfirmed = true
                 };
 
