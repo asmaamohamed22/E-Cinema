@@ -182,8 +182,8 @@ namespace E_Cinema.Controllers
                 if (roleName != null)
                 {
                     HttpContext.Response.Cookies.Append(
-                     "name", "value",
-                     new CookieOptions() { SameSite = SameSiteMode.Lax });
+                    "name", "value",
+                    new CookieOptions() { SameSite = SameSiteMode.Lax });
                     AddCookies(user.UserName, roleName, user.Id, loginVM.RememberMe, user.Email);
                 }
 
@@ -208,7 +208,6 @@ namespace E_Cinema.Controllers
             return null;
         }
 
-
         [HttpGet]
         [Route("UserExists")]
         public async Task<IActionResult> UserExists(string username)
@@ -232,7 +231,6 @@ namespace E_Cinema.Controllers
             }
             return BadRequest("Email is available");
         }
-
 
         private async Task CreateAdmin()
         {

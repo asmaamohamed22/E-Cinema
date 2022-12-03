@@ -10,10 +10,12 @@ namespace E_Cinema.Services.Repositories.Admin
     {
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
-        public AdminRepository(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
+        private readonly RoleManager<ApplicationRole> _roleManager;
+        public AdminRepository(ApplicationDbContext db, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
             _db = db;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public async Task<IEnumerable<ApplicationUser>> GetUsers()
@@ -32,14 +34,35 @@ namespace E_Cinema.Services.Repositories.Admin
                 UserName = model.UserName,
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
-                EmailConfirmed = model.EmailConfirm,
+                EmailConfirmed = model.EmailConfirmed,
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                if (await _roleManager.RoleExistsAsync("User"))
+                {
+                    if (!await _userManager.IsInRoleAsync(user, "User") && !await _userManager.IsInRoleAsync(user, "Admin"))
+                    {
+                        await _userManager.AddToRoleAsync(user, "User");
+                    }
+                }
                 return user;
             }
             return null;
+        }
+
+        public async Task<ApplicationUser> GetUserAsync(string id)
+        {
+            if(id == null)
+            {
+                return null;
+            }
+            var user = await _db.Users.FirstOrDefaultAsync(x=>x.Id == id);
+            if (user == null)
+            {
+                return null;
+            }
+            return user;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace E_Cinema.ModelViews.users
         public string Password { get; set; }
 
         [Required]
-        public bool EmailConfirm { get; set; }
+        public bool EmailConfirmed { get; set; }
 
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }

@@ -7,5 +7,6 @@ namespace E_Cinema.Services.Repositories.Admin
     {
         Task<ApplicationUser> AddUser(AddUserModel model);
         Task<IEnumerable<ApplicationUser>> GetUsers();
+        Task<ApplicationUser> GetUserAsync(string id);
     }
 }

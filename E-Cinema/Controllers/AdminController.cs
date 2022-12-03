@@ -10,7 +10,7 @@ namespace E_Cinema.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-   // [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly IAdminRepository _repo;
@@ -42,6 +42,22 @@ namespace E_Cinema.Controllers
                 {
                     return Ok(user);
                 }
+            }
+            return BadRequest();
+        }
+
+        [HttpGet]
+        [Route("GetUser/{id}")]
+        public async Task<ActionResult<ApplicationUser>> GetUser(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var user = await _repo.GetUserAsync(id);
+            if (user != null)
+            {
+                return user;
             }
             return BadRequest();
         }
